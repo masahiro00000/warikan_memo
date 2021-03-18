@@ -1,0 +1,42 @@
+<div class="main-contents">
+    <!--<p>warikan000 works!</p>-->
+    <!--<input type="text" name="accessKey" [(ngModel)]="accessKey" />-->
+    <mat-card>
+        <div class="card-content">
+            <mat-card-actions>
+                <mat-form-field>
+                    <input matInput #name type="text" maxlength="20" placeholder="グループ名 (任意)" [(ngModel)]="groupName" maxlength=20 size=30>
+                    <mat-hint align="end">{{name.value.length}} / 20</mat-hint>
+                    <button mat-icon-button *ngIf="groupName" matSuffix aria-label="Clear" (click)="groupName=null">
+                <mat-icon>close</mat-icon>
+            </button>
+                    <!--<mat-hint></mat-hint>-->
+                </mat-form-field>
+                <br/>
+                <button mat-raised-button routerLink="/items" color="primary" name="add-payment" (click)="saveGroupName()">
+                    <mat-icon matPrefix>create</mat-icon>
+                    メモを始める
+                </button>
+            </mat-card-actions>
+        </div>
+    </mat-card>
+    <mat-nav-list *ngIf="accessedGroupLog">
+        <h3 mat-subheader>メモの履歴</h3>
+        <mat-list-item *ngFor="let item of accessedGroupLog; let i=index;" (click)="navigate(item.key)">
+            <mat-icon mat-list-icon color="primary">link</mat-icon>
+            <!--<h4 mat-line>{{payment.payer}} </h4>-->
+            <p matLine>
+                <span *ngIf="item.groupName"> {{item.groupName}} &nbsp;</span>
+                <span>({{item.key}}) </span>
+            </p>
+            <button mat-icon-button (click)="openDialog($event, i)">
+              <mat-icon>remove_circle_outline</mat-icon>
+            </button>
+            <mat-divider></mat-divider>
+        </mat-list-item>
+    </mat-nav-list>
+</div>
+
+<!--<nav>-->
+<!--    <a [routerLink]="link">{{"/items?key="+accessKey}}</a>-->
+<!--</nav>-->

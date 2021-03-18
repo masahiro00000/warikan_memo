@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>メンバーの削除</h1>
+<div mat-dialog-content>
+    <p *ngIf="data.isRemovable">以下のメンバーを削除しますか？</p>
+    <p *ngIf="!data.isRemovable">以下のメンバーは支払い情報に含まれているため、削除できません。</p>
+    <mat-list>
+        <mat-list-item>
+            <mat-icon mat-list-icon>person_outline</mat-icon>
+            <h4 mat-line>{{data.member}} </h4>
+        </mat-list-item>
+    </mat-list>
+</div>
+<div mat-dialog-actions *ngIf="data.isRemovable">
+    <button mat-button color="primary" mat-dialog-close>No Thanks</button>
+    <button mat-button color="primary" [mat-dialog-close]="true">OK</button>
+</div>
+
+<div mat-dialog-actions *ngIf="!data.isRemovable">
+    <button mat-button color="primary" mat-dialog-close>OK</button>
+</div>

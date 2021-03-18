@@ -1,0 +1,72 @@
+<!--<input placeholder="名前" type="text" name="name" [(ngModel)]="myName" />-->
+
+<div class="main-contents">
+    <mat-card>
+        <div class="card-content clearfix">
+            <mat-card-header>
+                <mat-card-title>支払い</mat-card-title>
+            </mat-card-header>
+            <mat-card-actions>
+
+                <mat-form-field>
+                    <mat-label>支払った人</mat-label>
+                    <button mat-icon-button matPrefix>
+                            <mat-icon [color]="payerIconColor" class="prefix-icon">person</mat-icon>
+                        </button>
+                    <mat-select (focus)="payerIconColor='primary'" (blur)="payerIconColor='black'" [(value)]="payer" required>
+                        <mat-option>-- 支払った人を選んでください --</mat-option>
+                        <mat-option *ngFor="let member of members" [value]="member">{{member}}</mat-option>
+                    </mat-select>
+                    <mat-hint>支払った人</mat-hint>
+                </mat-form-field>
+                <br/>
+                <mat-form-field class="example-form-field">
+                    <button mat-icon-button matPrefix>
+                            <mat-icon [color]="amountIconColor" class="prefix-icon">attach_money</mat-icon>
+                        </button>
+                    <input matInput type="number" [formControl]="amountFC" (focus)="amountIconColor='primary'" (blur)="amountIconColor='black'" placeholder="金額" [(ngModel)]="amount" required="required">
+                    <button mat-icon-button *ngIf="amount" matSuffix aria-label="Clear" (click)="amount=null">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                    <mat-hint>支払った金額</mat-hint>
+                </mat-form-field>
+                <br/>
+                <mat-form-field class="example-chip-list">
+                    <button mat-icon-button matPrefix>
+                            <mat-icon [color]="debtorsIconColor" class="prefix-icon">people</mat-icon>
+                        </button>
+                    <mat-chip-list #chipList aria-label="debtor selection">
+                        <mat-chip *ngFor="let debtor of debtors" [selectable]="selectable" [removable]="removable" (removed)="remove(debtor)">
+                            {{debtor}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input matInput (focus)="debtorsIconColor='primary'" (blur)="debtorsIconColor='black'" placeholder="誰の分を支払ったか" required="required" #debtorInput [formControl]="debtorCtrl" [matAutocomplete]="auto" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                            [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+                    </mat-chip-list>
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                        <mat-option *ngFor="let debtor of filtereddebtors | async" [value]="debtor">
+                            {{debtor}}
+                        </mat-option>
+                    </mat-autocomplete>
+                    <mat-hint>誰の分を支払ったか</mat-hint>
+                </mat-form-field>
+                <br/>
+                <mat-form-field class="example-form-field">
+                    <button mat-icon-button matPrefix>
+                            <mat-icon [color]="memoIconColor" class="prefix-icon">notes</mat-icon>
+                        </button>
+                    <input matInput (focus)="memoIconColor='primary'" (blur)="memoIconColor='black'" type="text" placeholder="メモ" [(ngModel)]="memo" maxlength=100>
+                    <button mat-icon-button *ngIf="memo" matSuffix aria-label="Clear" (click)="memo=''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    <mat-hint>メモ</mat-hint>
+                </mat-form-field>
+                <div class="right" name="buttons">
+                    <button mat-raised-button name="add-payment" (click)="back()">戻る</button>
+                    <button mat-raised-button color="accent" name="add-payment" (click)="updatePayment()">変更</button>
+                </div>
+            </mat-card-actions>
+        </div>
+    </mat-card>
+</div>
+<!--<button>計算</button>-->

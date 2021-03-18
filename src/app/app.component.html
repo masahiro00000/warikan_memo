@@ -1,0 +1,38 @@
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<mat-toolbar id="app-toolbar" class="mat-elevation-z4" color="primary">
+    <span>{{title}}</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="shareMenu" aria-label="Example icon-button with a menu">
+      <mat-icon>share</mat-icon>
+    </button>
+    <mat-menu #shareMenu="matMenu">
+        <button mat-menu-item (click)="copyUrl()">
+            <mat-icon fontSet="material-icons-outlined">file_copy</mat-icon>
+            <span>URLをコピー</span>
+        </button>
+        <button mat-menu-item (click)="shareUrl()">
+            <mat-icon fontSet="material-icons-outlined">share</mat-icon>
+            <span>共有</span>
+        </button>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="navigate('')">
+            <mat-icon fontSet="material-icons-outlined">launch</mat-icon>
+            <span>新しい割り勘</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon fontSet="material-icons-outlined">developer_mode</mat-icon>
+            <span>Test version</span>
+        </button>
+    </mat-menu>
+</mat-toolbar>
+<!--<h1> {{title}} </h1>-->
+
+
+<!--<app-warikan010></app-warikan010>-->
+
+<router-outlet (activate)="onActivate($event)"></router-outlet>

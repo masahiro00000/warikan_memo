@@ -1,0 +1,36 @@
+.main-contents {
+    width: 95%;
+    margin: auto; // min-width: 200px;
+    max-width: 600px;
+    text-align: center;
+
+}
+
+
+mat-form-field {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50% !important;
+}
+
+mat-card {
+    margin-top: 10px;
+    background-color: #FFF;
+}
+
+mat-list-item {
+    text-align: left;
+
+}
+
+mat-nav-list {
+    margin-top: 5px;
+    background-color: #FFF;
+}
+
+// .center {
+//     width: 50%; // display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: column;
+// }

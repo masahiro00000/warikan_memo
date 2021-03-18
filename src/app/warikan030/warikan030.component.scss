@@ -1,0 +1,53 @@
+mat-card {
+    margin: 5px;
+}
+
+.mgrl-10 {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.mgl-10 {
+    margin-left: 10px;
+}
+
+.card {}
+
+.main-contents {
+    width: 95%;
+    margin: auto; // min-width: 200px;
+    max-width: 600px; // text-align: center;
+    z-index: 12;
+}
+
+::ng-deep .mat-card-header-text {
+    margin-left: 0px !important;
+}
+
+
+mat-form-field {
+    margin-bottom: 10px;
+    width: 100%; // text-align: left;
+}
+
+
+::ng-deep .mat-card-actions {
+    margin: 5px !important;
+}
+
+
+.right {
+    //display: block !important;
+    float: right !important;
+}
+
+
+.prefix-icon {
+    transform: scale(1.5);
+}
+
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
+}
