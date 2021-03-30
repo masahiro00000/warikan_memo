@@ -15,23 +15,23 @@ const httpOptions = {
 export class Warikan010Service {
   constructor(private http: HttpClient) {}
 
-  // url_insert =
-  //   "https://11dg6drcxd.execute-api.ap-northeast-1.amazonaws.com/warikan/insert";
-
-  // url_fetch =
-  //   "https://11dg6drcxd.execute-api.ap-northeast-1.amazonaws.com/warikan/fetch";
-
-  // url_update =
-  //   "https://11dg6drcxd.execute-api.ap-northeast-1.amazonaws.com/warikan/update";
-
   url_insert =
-    "https://k2e5uqqls3.execute-api.ap-northeast-1.amazonaws.com/prod/insert";
+    "https://i74ehdz3ij.execute-api.ap-northeast-1.amazonaws.com/Prod/insert";
 
   url_fetch =
-    "https://k2e5uqqls3.execute-api.ap-northeast-1.amazonaws.com/prod/fetch";
+    "https://i74ehdz3ij.execute-api.ap-northeast-1.amazonaws.com/Prod/fetch";
 
   url_update =
-    "https://k2e5uqqls3.execute-api.ap-northeast-1.amazonaws.com/prod/update";
+    "https://i74ehdz3ij.execute-api.ap-northeast-1.amazonaws.com/Prod/update";
+
+  // url_insert =
+  //   "https://k2e5uqqls3.execute-api.ap-northeast-1.amazonaws.com/prod/insert";
+
+  // url_fetch =
+  //   "https://k2e5uqqls3.execute-api.ap-northeast-1.amazonaws.com/prod/fetch";
+
+  // url_update =
+  //   "https://k2e5uqqls3.execute-api.ap-northeast-1.amazonaws.com/prod/update";
 
   insertRecode(
     key: string,
