@@ -17,15 +17,22 @@ export class Warikan010Service {
   constructor(private http: HttpClient) {}
 
   //本番用API
-  // url_insert =
-  //   "https://i74ehdz3ij.execute-api.ap-northeast-1.amazonaws.com/Prod/insert";
+  url_insert =
+    "https://i74ehdz3ij.execute-api.ap-northeast-1.amazonaws.com/Prod/insert";
+  // "https://i74ehdz3ij.execute-api.ap-northeast-1.amazonaws.com/Beta/insert";
 
-  // url_fetch =
-  //   "https://i74ehdz3ij.execute-api.ap-northeast-1.amazonaws.com/Prod/fetch";
+  url_fetch =
+    "https://i74ehdz3ij.execute-api.ap-northeast-1.amazonaws.com/Prod/fetch";
+  // "https://i74ehdz3ij.execute-api.ap-northeast-1.amazonaws.com/Beta/fetch";
 
-  // url_update =
-  //   "https://i74ehdz3ij.execute-api.ap-northeast-1.amazonaws.com/Prod/update";
+  url_update =
+    "https://i74ehdz3ij.execute-api.ap-northeast-1.amazonaws.com/Prod/update";
+  // "https://i74ehdz3ij.execute-api.ap-northeast-1.amazonaws.com/Beta/update";
 
+  // 本番用APIキー
+  apiKeyDev = "266lcEZVWNaAl4kFJRKJS5qP7BppJoSN5oS0Ovni";
+
+  /*
   //開発用API
   url_insert =
     "https://k2e5uqqls3.execute-api.ap-northeast-1.amazonaws.com/prod/insert";
@@ -41,6 +48,7 @@ export class Warikan010Service {
 
   // 開発用APIキー
   apiKeyDev = "R4dDdxMzY03y7dLNruv3S26C30KcurFE5qkgHgcn";
+  */
 
   httpOptions = {
     headers: new HttpHeaders({

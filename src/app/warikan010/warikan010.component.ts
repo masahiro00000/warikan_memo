@@ -132,7 +132,7 @@ export class Warikan010Component implements OnInit, DoCheck {
     } else {
       this.selectedTab = 0;
     }
-    console.log(this.accessKey);
+    // console.log(this.accessKey);
     if (this.accessKey) {
       this.fetchRecode(this.accessKey);
     } else {
@@ -253,7 +253,7 @@ export class Warikan010Component implements OnInit, DoCheck {
         }
       }
     }
-    console.log(this.payments);
+    // console.log(this.payments);
     // this.debtors = JSON.parse(JSON.stringify(this.members));
 
     this.calculate();
@@ -399,7 +399,7 @@ export class Warikan010Component implements OnInit, DoCheck {
         false
       )
       .subscribe((data) => {
-        console.log(JSON.stringify(data));
+        // console.log(JSON.stringify(data));
         this.accessKey = key;
         this.saveAccessedGroupLog();
         this.router.navigate(["/items"], { queryParams: { key: key } });
@@ -428,7 +428,7 @@ export class Warikan010Component implements OnInit, DoCheck {
 
       this.sendGroupName.emit(this.groupName);
 
-      console.log(JSON.stringify(data));
+      // console.log(JSON.stringify(data));
     });
   }
 
@@ -444,7 +444,7 @@ export class Warikan010Component implements OnInit, DoCheck {
       )
       .subscribe(
         (data) => {
-          console.log(JSON.stringify(data));
+          // console.log(JSON.stringify(data));
           if (data["errorMsg"]) {
             window.alert("エラー");
             window.location.reload(true);
@@ -454,7 +454,7 @@ export class Warikan010Component implements OnInit, DoCheck {
         },
         (err) => {
           this.fetchRecode(this.accessKey);
-          console.log(JSON.stringify(err));
+          // console.log(JSON.stringify(err));
         },
         () => {}
       );
@@ -476,9 +476,9 @@ export class Warikan010Component implements OnInit, DoCheck {
   }
 
   saveAccessedGroupLog() {
-    console.log("saveGroupLog");
-    console.log("key: " + this.accessKey);
-    console.log("groupname: " + this.groupName);
+    // console.log("saveGroupLog");
+    // console.log("key: " + this.accessKey);
+    // console.log("groupname: " + this.groupName);
     if (this.accessKey) {
       // this.fetchRecode(this.accessKey);
       let accessedGroupLog = localStorage.getItem("accessedGroupLog");
@@ -495,8 +495,8 @@ export class Warikan010Component implements OnInit, DoCheck {
           }
         });
 
-        console.log("exists: " + String(exists));
-        console.log("i: " + String(i));
+        // console.log("exists: " + String(exists));
+        // console.log("i: " + String(i));
 
         if (exists) {
           tmpMap.splice(i, 1);
@@ -512,7 +512,7 @@ export class Warikan010Component implements OnInit, DoCheck {
   }
 
   openRemovePaymentDialog(e, payment: IPayment): void {
-    console.log("removePayment");
+    // console.log("removePayment");
     e.stopPropagation();
     const dialogRef = this.dialog.open(
       warikan010PaymentConfirmDialogComponent,
@@ -523,7 +523,7 @@ export class Warikan010Component implements OnInit, DoCheck {
     );
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log("The dialog was closed");
+      // console.log("The dialog was closed");
       if (result) {
         this.removePayment(payment);
       }
@@ -558,7 +558,7 @@ export class Warikan010Component implements OnInit, DoCheck {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log("The dialog was closed");
+      // console.log("The dialog was closed");
       if (result) {
         this.removeMember(member);
       }
@@ -566,7 +566,7 @@ export class Warikan010Component implements OnInit, DoCheck {
   }
 
   navigate(payment: IPayment) {
-    console.log("navigate");
+    // console.log("navigate");
     sessionStorage.setItem("accessKey", this.accessKey);
     sessionStorage.setItem("groupName", this.groupName);
     sessionStorage.setItem("members", JSON.stringify(this.members));

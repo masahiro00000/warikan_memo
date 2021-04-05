@@ -55,11 +55,11 @@ export class Warikan000Component implements OnInit {
     this.accessedGroupLog = JSON.parse(
       localStorage.getItem("accessedGroupLog")
     );
-    console.log(this.accessedGroupLog);
+    // console.log(this.accessedGroupLog);
   }
 
   removeAccessedGroupLog(i: number) {
-    console.log("remove");
+    // console.log("remove");
     this.accessedGroupLog.splice(i, 1);
     localStorage.setItem(
       "accessedGroupLog",
@@ -68,8 +68,10 @@ export class Warikan000Component implements OnInit {
   }
 
   navigate(key: string) {
-    console.log("navigate");
-    this.router.navigate(["/items"], { queryParams: { key: key, selectedTab: 0 } });
+    // console.log("navigate");
+    this.router.navigate(["/items"], {
+      queryParams: { key: key, selectedTab: 0 },
+    });
   }
 
   openDialog(event, i: number): void {
@@ -82,7 +84,7 @@ export class Warikan000Component implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log("The dialog was closed");
+      // console.log("The dialog was closed");
       if (result) {
         this.removeAccessedGroupLog(i);
       }

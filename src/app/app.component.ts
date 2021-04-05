@@ -82,8 +82,8 @@ export class AppComponent {
     this.componentRef = event;
     // this.componentRef.anyFunction();
 
-    console.log("onActivate-------------------------------------------------");
-    console.log("groupName: " + this.componentRef.groupName);
+    // console.log("onActivate-------------------------------------------------");
+    // console.log("groupName: " + this.componentRef.groupName);
     if (this.componentRef.sendGroupName) {
       this.componentRef.sendGroupName.subscribe((groupName) => {
         this.title = groupName;
