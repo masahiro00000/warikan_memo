@@ -1,7 +1,11 @@
-import { Component } from "@angular/core";
+import { Component, Inject } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { ActivatedRoute, Params, Router } from "@angular/router";
-import { Observable } from "rxjs";
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from "@angular/material/dialog";
 
 @Component({
   selector: "app-root",
@@ -21,7 +25,8 @@ export class AppComponent {
   constructor(
     private _snackBar: MatSnackBar,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    public dialog: MatDialog
   ) {}
 
   copyUrl() {
@@ -74,6 +79,17 @@ export class AppComponent {
     this.router.navigate([page], { relativeTo: this.activatedRoute });
   }
 
+  openQRCodeDialog(): void {
+    let data = {
+      url: location.href,
+    };
+
+    const dialogRef = this.dialog.open(QRCodeComponent, {
+      width: "400px",
+      data: data,
+    });
+  }
+
   /**
    * router-outletによる画面切り替え時に呼び出される処理
    */
@@ -109,3 +125,19 @@ export class AppComponent {
   ],
 })
 export class SnackbarComponent {}
+
+@Component({
+  selector: "show-qrcode-dialog",
+  templateUrl: "qrCodeDialog.html",
+  styleUrls: ["./app.component.scss"],
+})
+export class QRCodeComponent {
+  public myAngularxQrCode: string = null;
+  constructor(
+    public dialogRef: MatDialogRef<QRCodeComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: {}
+  ) {
+    // assign a value
+    this.myAngularxQrCode = "Your QR code data string";
+  }
+}

@@ -4,7 +4,11 @@ import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent, SnackbarComponent } from "./app.component";
+import {
+  AppComponent,
+  SnackbarComponent,
+  QRCodeComponent,
+} from "./app.component";
 import {
   Warikan000Component,
   warikan000ConfirmDialogComponent,
@@ -34,6 +38,7 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatDialogModule } from "@angular/material/dialog";
 import { Warikan030Component } from "./warikan030/warikan030.component";
+import { QRCodeModule } from "angularx-qrcode";
 
 @NgModule({
   declarations: [
@@ -45,12 +50,14 @@ import { Warikan030Component } from "./warikan030/warikan030.component";
     warikan010PaymentConfirmDialogComponent,
     warikan010MemberConfirmDialogComponent,
     Warikan030Component,
+    QRCodeComponent,
   ],
   entryComponents: [
     SnackbarComponent,
     warikan000ConfirmDialogComponent,
     warikan010PaymentConfirmDialogComponent,
     warikan010MemberConfirmDialogComponent,
+    QRCodeComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,6 +82,7 @@ import { Warikan030Component } from "./warikan030/warikan030.component";
     MatMenuModule,
     MatSnackBarModule,
     MatDialogModule,
+    QRCodeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
