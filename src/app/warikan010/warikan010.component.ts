@@ -137,6 +137,7 @@ export class Warikan010Component implements OnInit, DoCheck {
       this.fetchRecode(this.accessKey);
     } else {
       this.sendGroupName.emit(this.groupName);
+      this.insertRecode();
     }
     this.saveAccessedGroupLog();
 

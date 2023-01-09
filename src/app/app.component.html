@@ -11,6 +11,10 @@
             <mat-icon fontSet="material-icons-outlined">file_copy</mat-icon>
             <span>URLをコピー</span>
         </button>
+        <button mat-menu-item (click)="openQRCodeDialog()">
+            <mat-icon fontSet="material-icons-outlined">qr_code_2</mat-icon>
+            <span>QRコード</span>
+        </button>
         <button mat-menu-item (click)="shareUrl()">
             <mat-icon fontSet="material-icons-outlined">share</mat-icon>
             <span>共有</span>

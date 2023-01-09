@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>QR Code</h1>
+<div mat-dialog-content>
+    <p>以下のQRコードで共有できます。</p>
+    <qrcode id="qrcode" [qrdata]="data.url" [width]="256" [errorCorrectionLevel]="'M'">
+
+    </qrcode>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button color="primary" mat-dialog-close>Close</button>
+</div>
