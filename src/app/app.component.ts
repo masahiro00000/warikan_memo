@@ -135,7 +135,7 @@ export class QRCodeComponent {
   public myAngularxQrCode: string = null;
   constructor(
     public dialogRef: MatDialogRef<QRCodeComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: {}
+    @Inject(MAT_DIALOG_DATA) public data: { url: String }
   ) {
     // assign a value
     this.myAngularxQrCode = "Your QR code data string";
